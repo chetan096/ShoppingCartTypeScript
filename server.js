@@ -54,6 +54,7 @@ app.get('/logout', (req, res) => {
 
 app.use('/api', require('./routes/api')); // it will mount index.js on this path
 
+//manage html files 
 // if direct page request comes then it will first authenticate if not logged in redirect to login.html else open required file
 app.use('/', (req, res, next) => {
   if (!req.user) {
