@@ -1,0 +1,58 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    <script src="http://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="backgroundImage">
+    <br/>
+    <div class="container" id="app">
+        <a class="btn btn-success btn-lg" href="showProducts.html">Show Products</a>
+        <a class="btn btn-success btn-lg" href="/logout" style="float:right">Logout</a>
+        <center>
+            <h1 style="color:brown">Cart</h1>
+        </center>
+        <br/>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item of cart">
+                    <td>{{item.product.name}}</td>
+                    <td>{{item.product.price}}</td>
+                    <td>
+                        <button :id="item.product.id" :value="increase" class="btn btn-success btn-sm" v-on:click='updateQuantity'>+</button>&nbsp;{{item.quantity}} &nbsp;
+                        <button :id="item.product.id" :value="decrease" class="btn btn-success btn-sm" v-on:click='updateQuantity'>-</button>
+                    </td>
+                    <td>{{item.amount}}</td>
+                </tr>
+                <tr class="amount">
+                    <td colspan="3">
+                        <h3 class="amount">Total Amount</h3>
+                    </td>
+                    <td style="color:red" colspan="1">
+                        <h4>Rs.{{totalAmount}}/-</h4>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="cartView.js"></script>
+</body>
+
+</html>

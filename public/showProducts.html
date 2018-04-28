@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Show Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="http://unpkg.com/vue"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="backgroundColor">
+    <div id="app">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top mb-0">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li>
+                    <img width="210" height="50" class="logo" src="https://m1.behance.net/rendition/modules/107556269/disp/e2b928a2a2841f637ff9d10a810dfc32.png"
+                        alt="Flipkart" title="Flipkart" /> </li>
+            </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-buttons btn btn-lg" href="addProduct.html">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-buttons btn btn-lg" href="showCart.html">Show Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-buttons btn btn-lg" v-on:click="showAllProducts" href="">Show All Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-buttons btn btn-lg" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-buttons btn btn-lg" href="signup.html">Signup</a>
+                    </li>
+                    <li class="nav-item" v-model="username">
+
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-buttons btn btn-lg" href="/logout">
+                            {{username}}
+                            <i class="fa fa-sign-out"></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <image class="img" src='https://images-eu.ssl-images-amazon.com/images/G/31/img18/Wireless/featurephones/fest/lastday/ksugane_2018-04-19T07-42_849582_1111104_in_wireless_product_phone_fest_3000X600._CB497695544_.jpg'>
+            <h3 style="display:inline">Filter Products By Vendor:</h3>
+            <ul style="list-style-type:none;display:inline-block;" class="pl-0 mb-0">
+                <li v-for="vendor of vendors" class="filterCheck">
+                    <input type="checkbox" :value="vendor.id" v-on:change="filterProductsByVendor" v-model="checkSelectedBoxes"> {{vendor.name}}
+                </li>
+            </ul>
+            <br/>
+            <br/>
+            <div v-for="product of products" class="col-sm-3 card" style="display:inline-block;width:30%;margin-right:3%;margin-bottom:30px;margin-left:5%">
+                <div class="row" style="color:sienna">
+                    <h4>{{product.name}}</h4>
+                </div>
+                <div class="row">
+                    <b>Vendor: {{product.vendor.name}}</b>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 mt-1 p-0">
+                        <b>Rs.{{product.price}}/-</b>
+                    </div>
+                    <div class="col-sm-2 mb-1">
+                        <button class="btn btn-info" :id="product.id" v-on:click="addProductToCart">BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div v-for="(product,index) in products">
+            <div class="row" v-if="index == 0 || index % 3 == 0">
+                <div v-if="index<products.length" class="col-sm-3 card m-4">
+                    <div class="row" style="color:sienna">
+                        <h4>{{products[index].name}}</h4>
+                    </div>
+                    <div class="row">
+                        <b>Vendor: {{products[index].vendor.name}}</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 mt-1 p-0">
+                            <b>Rs.{{products[index].price}}/-</b>
+                        </div>
+                        <div class="col-sm-2 mb-1">
+                            <button class="btn btn-info" :id="products[index].id" v-on:click="addProductToCart">BUY</button>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="(index+1)<products.length" class="col-sm-3 card m-4 ">
+                    <div class="row" style="color:sienna">
+                        <h4>{{products[index+1].name}}</h4>
+                    </div>
+                    <div class="row">
+                        <b>Vendor: {{products[index+1].vendor.name}}</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 mt-1 p-0">
+                            <b>Rs.{{products[index+1].price}}/-</b>
+                        </div>
+                        <div class="col-sm-2 mb-1">
+                            <button class="btn btn-info" :id="products[index+1].id" v-on:click="addProductToCart">BUY</button>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="(index+2)<products.length" class="col-sm-3 card m-4 ">
+                    <div class="row" style="color:sienna">
+                        <h4>{{products[index+2].name}}</h4>
+                    </div>
+                    <div class="row">
+                        <b>Vendor: {{products[index+2].vendor.name}}</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 mt-1 p-0">
+                            <b>Rs.{{products[index+2].price}}/-</b>
+                        </div>
+                        <div class="col-sm-2 mb-1">
+                            <button class="btn btn-info" :id="products[index+2].id" v-on:click="addProductToCart">BUY</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</body>
+<script src="listProductsView.js"></script>
+
+</html>

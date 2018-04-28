@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add Product Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="http://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body style="background-image:url('./images/login7.jpeg')">
+    <br/>
+    <br/>
+    <a class="btn btn-success btn-lg" href="showProducts.html">Show Products</a>
+    <a class="btn btn-success btn-lg" href="/logout" style="float:right">Logout</a>
+    <div class="container">
+        <center>
+            <h1 style="color:red">Add Product Details</h1>
+        </center>
+        <br/>
+        <br/>
+        <div id="app">
+            <div class="form-group">
+                <h2  style="color:red">Product Name</h2>
+                <input type="text" class="form-control" v-model="productName" id="productName" placeholder="Enter Product Name..">
+            </div>
+            <div class="form-group">
+                <h2  style="color:red">Price</h2>
+                <input type="text" class="form-control" v-model="productPrice" id="productPrice" placeholder="Price...">
+            </div>
+            <h3 style="color:red" class="m-0">Select Vendor Name</h3>&nbsp;&nbsp;&nbsp;
+            <select v-model="selectedVendorId" class="form-control mt-0">
+                <option v-for="vendor of vendors" v-bind:value="vendor.id">{{vendor.name}}</option>
+            </select>
+            <br/>
+            <br/>
+            <button type="submit" class="btn btn-success" v-on:click="addProduct">Add</button>
+        </div>
+    </div>
+    <script src="addProductView.js"></script>
+</body>
+
+</html>

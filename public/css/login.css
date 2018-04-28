@@ -1,0 +1,102 @@
+.backgroundImage{
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/87/77/4957d2cdf77366b.jpg');background-size: cover
+}
+.signup-form{
+	border: 2px solid beige;
+}
+
+.signup-text{
+	color: white;
+	font-size: 16px;
+}
+
+.register-box {
+    width: 500px;
+	background-color: #fff;
+    box-shadow: 6px 6px black;
+    padding: 20px 20px;
+	border-radius: 18px;
+}
+.app-base{
+	color: inherit;
+}
+fieldset {
+    display: block;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+    min-width: -webkit-min-content;
+}
+.register-input-item {
+    position: relative;
+}
+.register-user-input {
+    display: block;
+    color: #282c3f;
+    font-size: 15px;
+    padding-right: 40px;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+}
+.register-user-input-password {
+    border-top: 1px solid #d5d6d9;
+}
+.register-user-input-name {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.register-register-form {
+    margin: 0;
+}
+.register-title {
+    font-size: 32px;
+    margin-top: 15px;
+    color: #535766;
+}
+.register-input-container {
+    margin: 20px;
+    border: 1px solid #bfc0c6;
+    border-radius: 5px;
+    padding: 0;
+}
+.register-register-button-container {
+    padding: 10px 20px;
+    margin: 0;
+    border: 0;
+}
+.register-register-button {
+    background-color: #ff527b;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+    border: 0;
+    text-transform: uppercase;
+    border-radius: 3px;
+	font-family: Whitney;
+	cursor: pointer;
+}
+.register-login-link {
+    text-align: center;
+}
+.register-info-text {
+    color: #94969f;
+    font-size: 12px;
+}
+.register-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ff527b;
+    padding: 10px 0;
+    font-size: 13px;
+}
+.register-create-account-link {
+    margin-left: 5px;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "shoppingcart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "nodemon server.js"
+  },
+  "author": "chetan",
+  "license": "ISC",
+  "dependencies": {
+    "array-unique": "^0.3.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.3",
+    "node-unique-array": "0.0.6",
+    "nodemon": "^1.17.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.37.6",
+    "sequelize-to-json": "^0.10.3"
+  }
+}

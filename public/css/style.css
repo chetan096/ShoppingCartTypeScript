@@ -1,0 +1,43 @@
+.backgroundImage{
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/87/77/4957d2cdf77366b.jpg');background-size: cover
+}
+.backgroundColor{
+   background-color: #cc9966
+}
+td{
+    color:white
+}
+.abc{
+    color: bisque;
+}
+.nav-buttons{
+    font-size: 20px;
+    color: black;
+}
+nav ul li a:hover{
+    color:whitesmoke;
+    background-color: #111;
+}
+.n-box-r{
+    float: right;
+}
+.n-box-l{
+    float: left;
+}
+.img{
+    width: 100%;
+    height: 300px;
+    margin-top: 66px;
+}
+.amount{
+    color: maroon
+}
+/* //#29a329 */
+.filterCheck{
+    display:inline;
+    font-size:24px;
+}
+
+.logo{
+    padding-top: 10px;
+}
