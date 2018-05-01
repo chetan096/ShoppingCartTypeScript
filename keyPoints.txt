@@ -1,0 +1,8 @@
+
+
+1.how require works====>
+
+require('x')--> first look for x.js if not found then x.json if again not found then x folder within which index file so return that file path
+
+
+nodemon module for itself restrating the server again after changes
